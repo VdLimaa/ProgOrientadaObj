@@ -1,0 +1,73 @@
+namespace PRJ_Figuras
+{
+    public class TrianguloRetangulo
+    {
+        private Retangulo r;
+
+        public TrianguloRetangulo(float catetoA, float catetoB)
+        {
+            r = new Retangulo(catetoA, catetoB);
+        }
+        public float calculaArea()
+        {
+            return r.calculaArea() / 2;
+        }
+
+        public float calculaPerimetro()
+        {
+            return r.ladoA + r.ladoB + r.calculaDiagonal();
+        }
+
+        public float catetoA()
+        {
+            return r.ladoA;
+        }
+        public float catetoB()
+        {
+            return r.ladoB;
+        }
+
+        public float catetoC()
+        {
+            return r.calculaDiagonal();
+        }
+    }
+
+    public class Retangulo
+    {
+        //Propriedades do retângulo
+        public float ladoA { get; private set; }
+        public float ladoB { get; private set; }
+
+        // Métodos do retângulo
+
+        public Retangulo(float ladoA, float ladoB)
+        {
+            this.ladoA = ladoA;
+            this.ladoB = ladoB;
+        }
+        // Metodo Construtor
+        // Usar o this. para diferenciar o ladoA e o ladoB
+
+        public float calculaArea()
+        {
+            return ladoA * ladoB;
+        }
+
+        public float calculaPerimetro()
+        {
+            return 2 * (ladoA + ladoB);
+        }
+
+        public float calculaDiagonal()
+        {
+            float diagonal = (float)Math.Sqrt(ladoA * ladoA + ladoB * ladoB);
+            return (float)Math.Round(diagonal, 2);
+
+            // Math.Sqrt retorna um double, por isso transformar em float
+        }
+    }
+
+    
+        
+}
